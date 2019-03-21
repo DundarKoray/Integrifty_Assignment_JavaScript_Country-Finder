@@ -13,6 +13,7 @@ const searchByAny = document.querySelector('.search-by-any')
 // Add EVENTLISTENER for buttons:  'click' and call the functions for them
 searchByInitials.addEventListener('click', searchCountriesByInitials)
 searchByInitials.addEventListener('click', generateDiv)
+searchBox.addEventListener('keyup', generateDiv)
 
 // searchByAny.addEventListener('click', searchCountriesByAny)
 
@@ -41,26 +42,52 @@ function searchCountriesByInitials () {
 }
 
 
-// Search Generate Div
+// Generate Div
 function generateDiv () {
+    clearItem()
+    
     const resultBox = document.querySelector('.result-section')
     const newCountries = searchCountriesByInitials ()
-  
-    const el = newCountries.forEach(element => {
+    
+    const el = newCountries.forEach((element, index) => {
         
+        const resultSpan = document.createElement('span')
         const createNewDiv = document.createElement('div')
         createNewDiv.setAttribute('class', 'country-div')
-        createNewDiv.textContent= element;
+        resultSpan.textContent= element
+        // createNewDiv.style.background = generateRGB()
+        
+        createNewDiv.appendChild(resultSpan)
         resultBox.appendChild(createNewDiv)
-    })
 
+        if(index % 2 === 0){
+            createNewDiv.classList.add('dark')
+        }else {
+            createNewDiv.classList.add('light')
+        }
+    })
     
 }
 
 
+// Clearing result
+function clearItem(){
+    const divsToRemove = document.querySelectorAll('.country-div')
+    divsToRemove.forEach(element => {
+        element.remove()
+    })
+}
 
 
-//Search is some certain characters exist such as "land"
-// function searchCountriesByAny () {
+// Generate Color
+// function generateRGB () {
+//     let r = Math.floor(Math.random() * 256)
+//     let g = Math.floor(Math.random() * 256)
+//     let b = Math.floor(Math.random() * 256)
 
+//     let generatedRGB = `rgb(${r},${g},${b})`
+//     return generatedRGB
+    
 // }
+
+
