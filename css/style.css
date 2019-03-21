@@ -64,3 +64,9 @@ input{
     text-align: center;
     font-size: 120%;
 }
+
+.country-div {
+    height: 100px;
+    background: white;
+    color: black;
+}
