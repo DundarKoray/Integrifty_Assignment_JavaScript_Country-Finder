@@ -18,7 +18,7 @@ body{
 h1{
     color: white;
     text-transform: uppercase;
-    font-size: 350%;
+    font-size: 250%;
     margin-bottom: 15px;
     font-weight: 300;
 }
@@ -55,6 +55,12 @@ button{
 button:hover{
     background: rgb(207, 207, 207);
 }
+
+.if-clicked {
+    background: #a3816a;
+}
+
+
 
 input{
     margin-bottom: 10px;

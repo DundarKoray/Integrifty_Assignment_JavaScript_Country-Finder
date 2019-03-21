@@ -66,8 +66,16 @@ function generateDiv () {
             createNewDiv.classList.add('light')
         }
     })
+
+    if(searchBox.value === '') {
+        resultBox.style.display = 'none'
+    } else {
+        resultBox.style.display = 'block'
+    }
     
 }
+
+
 
 
 // Clearing result
