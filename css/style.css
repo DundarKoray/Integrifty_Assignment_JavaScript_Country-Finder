@@ -145,11 +145,11 @@ input{
 
 .dark {
     /* background:rgba(0, 0, 0, 0.6);  */
-    background: rgba(176, 142, 47, .6)
+    background: rgba(176, 142, 47, .9)
 }
 
 .light{
-    background: rgba(176, 142, 47, .4)
+    background: rgba(176, 142, 47, .6)
     /* background:rgba(0, 0, 0, 0.4);  */
 }
 
