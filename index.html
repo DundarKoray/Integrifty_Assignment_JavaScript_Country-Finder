@@ -9,10 +9,21 @@
     <link href="https://fonts.googleapis.com/css?family=Cinzel:400,700,900" rel="stylesheet">
 </head>
 <body>
+    <div class="wrapper">
+
+        
+        <div class="overlay"></div>
+        <div class="background-video">
+                <video class="background-video__content" autoplay muted loop>
+                    <source src="./img/vintage_world_map_high-res.mp4" type="video/mp4"> 
+                    Your browser is not supported!
+                </video>
+            </div>
     <section>
+
         <div class="column head-section">
-                <h1>World Countries List</h1>
-                <p>Total Number of Countries 193</p>
+            <h1>World Countries List</h1>
+            <p>Total Number of Countries 193</p>
         </div>
         <div class="column button-section">
             <button class="search-by-initials">Starts with...</button>
@@ -26,6 +37,7 @@
         </div>
 
     </section>
+</div>
     <script src="./js/listOfCountries.js"></script>
     <script src="./js/countrySearch.js"></script>
 </body>

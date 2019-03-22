@@ -6,15 +6,54 @@
 
 body{
     font-family: 'Cinzel', serif;
-   background-image: linear-gradient(rgba(0, 0, 0, 0.7),rgba(0, 0, 0, 0.7)), 
-   url(../img/hero.jpg); 
-   background-attachment: fixed;
+   /* background-image: linear-gradient(rgba(0, 0, 0, 0.7),rgba(0, 0, 0, 0.7)), 
+   url(../img/hero.jpg);  */
+   
    /* height: 100vh; */
-   background-position: center;
+   /* background-position: center; */
    /* background-size: cover;  */
    /* background-repeat: no-repeat; */
+   /* background: rgba(176, 142, 47, .2); */
+   /* background-attachment: fixed; */
+   /* padding: 50px; */
+  
+   
 }
 
+.wrapper {
+    height: auto;
+    padding: 150px;
+    width: 100%;
+    position: relative;
+}
+
+
+.background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -2;
+    
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(59, 42, 7, 0.2);
+    z-index: -1;
+}
+
+.background-video__content{
+    object-fit: cover;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+}
 h1{
     color: white;
     text-transform: uppercase;
@@ -29,9 +68,10 @@ p{
 }
 
 section{
-    padding: 50px;
+    
     
 }
+
 
 .column{
     max-width: 900px;
@@ -55,15 +95,13 @@ button{
 
 button:hover{
     background: rgb(153, 153, 153);
-    transition: all .5s;
+    transition: all .2s;
     
 }
 
 .if-clicked {
     background: #a3816a;
 }
-
-
 
 input{
     margin-bottom: 30px;
@@ -102,7 +140,7 @@ input{
 
 .country-div:hover {
     background: rgba(255, 0, 0, 0.288);
-    transition: all .5s;
+    transition: all .2s;
 }
 
 .dark {
