@@ -5,7 +5,7 @@
 }
 
 body{
-   font-family: lato;
+    font-family: 'Cinzel', serif;
    background-image: linear-gradient(rgba(0, 0, 0, 0.7),rgba(0, 0, 0, 0.7)), 
    url(../img/hero.jpg); 
    background-attachment: fixed;
@@ -43,17 +43,20 @@ section{
 
 
 button{
+    font-family: 'Cinzel', serif;
     outline: none;
-    padding: 15px 35px;
+    padding: 10px 35px;
     border: none;
     border-radius: 30px;
     cursor: pointer;
     margin-right: 5px;
-    font-size: 100%;
+    font-size: 80%;
 }
 
 button:hover{
-    background: rgb(207, 207, 207);
+    background: rgb(153, 153, 153);
+    transition: all .5s;
+    
 }
 
 .if-clicked {
@@ -63,7 +66,7 @@ button:hover{
 
 
 input{
-    margin-bottom: 10px;
+    margin-bottom: 30px;
     border-radius: 20px;
     padding: 10px 25px;
     border: solid 1px rgba(0,0,0,0.27);
@@ -71,12 +74,16 @@ input{
     width: 100%;
     text-align: center;
     font-size: 120%;
+    font-family: 'Cinzel', serif;
 }
 
-.result-section {
+.result-section,
+.input-section {
     width: 50%;
     margin:0 auto;
 }
+
+
 
 .country-div {
     display: flex;
@@ -89,17 +96,26 @@ input{
     text-transform: uppercase;
     font-size: 100%;
     font-weight: 400;
+    width: 100%;
+    
+}
+
+.country-div:hover {
+    background: rgba(255, 0, 0, 0.288);
+    transition: all .5s;
 }
 
 .dark {
-    background:rgba(0, 0, 0, 0.6); 
+    /* background:rgba(0, 0, 0, 0.6);  */
+    background: rgba(176, 142, 47, .6)
 }
 
 .light{
-    background:rgba(0, 0, 0, 0.4); 
+    background: rgba(176, 142, 47, .4)
+    /* background:rgba(0, 0, 0, 0.4);  */
 }
 
 span {
-    background: rgba(0, 0, 0, 0.4);
+    /* background: rgba(0, 0, 0, 0.4); */
 
 }

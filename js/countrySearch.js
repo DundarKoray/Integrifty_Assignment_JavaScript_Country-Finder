@@ -8,57 +8,70 @@ const searchBox = document.querySelector('.search-box')
 
 // Target the buttons 'Search by Initials' and 'Search by Any'
 const searchByInitials = document.querySelector('.search-by-initials')
-const searchByAny = document.querySelector('.search-by-any')
+const searchAny = document.querySelector('.search-by-any')
 
 // Add EVENTLISTENER for buttons:  'click' and call the functions for them
 searchByInitials.addEventListener('click', searchCountriesByInitials)
 searchByInitials.addEventListener('click', generateDiv)
+
+
 searchBox.addEventListener('keyup', generateDiv)
+searchBox.addEventListener('keyup', generateDiv2)
 
-// searchByAny.addEventListener('click', searchCountriesByAny)
-
-
-
-
+searchAny.addEventListener('click', searchByAny)
+searchAny.addEventListener('click', generateDiv2)
 
 
 
 
+
+
+
+/**********************************
+* FUNCTIONS - FUNCTIONS - FUNCTIONS
+*/
 
 
 //Search by first letter 
-
-
 function searchCountriesByInitials () {
-    let searchKey = searchBox.value
+        const searchKey = searchBox.value
 
         const countriesStartWith = countries.filter(element =>{
         return element.toUpperCase().startsWith(searchKey.toUpperCase())
         })
 
-        
-
     return countriesStartWith
 }
 
+//Search by any
+function searchByAny () {
+    const searchKey = searchBox.value
+    const pattern = new RegExp(searchKey, 'gi')
+    
+    const searchResult = countries.filter(element => {
+        return element.match(pattern)
+    })
+    return searchResult
+    
+}
 
-// Generate Div
+// GENERATE DIV 1 - GENERATE DIV 1 - GENERATE DIV 1
 function generateDiv () {
     clearItem()
     
     const resultBox = document.querySelector('.result-section')
     const newCountries = searchCountriesByInitials ()
     
-    const el = newCountries.forEach((element, index) => {
+    newCountries.forEach((element, index) => {
         
         const resultSpan = document.createElement('span')
         const createNewDiv = document.createElement('div')
+        
         createNewDiv.setAttribute('class', 'country-div')
         resultSpan.textContent= element
-        // createNewDiv.style.background = generateRGB()
-        
         createNewDiv.appendChild(resultSpan)
         resultBox.appendChild(createNewDiv)
+        // createNewDiv.style.background = generateRGB()
 
         if(index % 2 === 0){
             createNewDiv.classList.add('dark')
@@ -75,8 +88,38 @@ function generateDiv () {
     
 }
 
+// GENERATE DIV 2 - GENERATE DIV 2 - GENERATE DIV 2
+function generateDiv2 () {
+    clearItem()
+    
+    const resultBox = document.querySelector('.result-section')
+    const newCountries = searchByAny()
+    
+    newCountries.forEach((element, index) => {
+        
+        const resultSpan = document.createElement('span')
+        const createNewDiv = document.createElement('div')
+        
+        createNewDiv.setAttribute('class', 'country-div')
+        resultSpan.textContent= element
+        createNewDiv.appendChild(resultSpan)
+        resultBox.appendChild(createNewDiv)
+        // createNewDiv.style.background = generateRGB()
 
+        if(index % 2 === 0){
+            createNewDiv.classList.add('dark')
+        }else {
+            createNewDiv.classList.add('light')
+        }
+    })
 
+    if(searchBox.value === '') {
+        resultBox.style.display = 'none'
+    } else {
+        resultBox.style.display = 'block'
+    }
+    
+}
 
 // Clearing result
 function clearItem(){
@@ -85,6 +128,50 @@ function clearItem(){
         element.remove()
     })
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // Generate Color
