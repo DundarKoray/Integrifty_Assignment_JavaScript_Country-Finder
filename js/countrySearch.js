@@ -79,14 +79,17 @@ function generateDiv () {
         }else {
             createNewDiv.classList.add('light')
         }
+
+        createNewDiv.addEventListener('mouseenter', playOnHover)
+        
     })
+    
 
     if(searchBox.value === '') {
         resultBox.style.display = 'none'
     } else {
         resultBox.style.display = 'block'
     }
-    
 }
 
 // GENERATE DIV 2 - GENERATE DIV 2 - GENERATE DIV 2
@@ -112,6 +115,8 @@ function generateDiv2 () {
         }else {
             createNewDiv.classList.add('light')
         }
+
+        createNewDiv.addEventListener('mouseenter', playOnHover)
     })
 
     if(searchBox.value === '') {
@@ -131,7 +136,10 @@ function clearItem(){
 }
 
 
-
+function playOnHover () {
+    var audio = document.getElementsByTagName("audio")[0];
+        audio.play();
+}
 
 
 
