@@ -11,25 +11,25 @@ const searchBox = document.querySelector('.search-box')
 const searchByInitials = document.querySelector('.search-by-initials')
 const searchAny = document.querySelector('.search-by-any')
 const searchAlphabetical = document.querySelector('.fontawesome-button')
+document.querySelector('.fontawesome-button').addEventListener('click', fontawesome)
 
+searchByInitials.addEventListener('click', selected)
+searchAny.addEventListener('click', selected)
 
 // Add EVENTLISTENER for buttons:  'click' and call the functions for them
-searchByInitials.addEventListener('click', searchCountriesByInitials)
-searchByInitials.addEventListener('click', generateDiv)
+    searchByInitials.addEventListener('click', searchCountriesByInitials)
+    searchByInitials.addEventListener('click', generateDiv)
+    
+    searchAny.addEventListener('click', searchByAny)
+    searchAny.addEventListener('click', generateDiv2)
+    
+    searchBox.addEventListener('keyup', generateDiv2)
+    searchBox.addEventListener('keyup', generateDiv)
 
-searchAlphabetical.addEventListener('click', reverseArray)
-
-searchBox.addEventListener('keyup', generateDiv)
-searchBox.addEventListener('keyup', generateDiv2)
-
-searchAny.addEventListener('click', searchByAny)
-searchAny.addEventListener('click', generateDiv2)
-
-
+    
 
 
-
-
+    
 
 /**********************************
 * FUNCTIONS - FUNCTIONS - FUNCTIONS
@@ -38,13 +38,13 @@ searchAny.addEventListener('click', generateDiv2)
 
 //Search by first letter 
 function searchCountriesByInitials () {
-        const searchKey = searchBox.value
+    const searchKey = searchBox.value
 
-        const countriesStartWith = countries.filter(element =>{
+    const countriesStartWith = countries.filter(element =>{
         return element.toUpperCase().startsWith(searchKey.toUpperCase())
-        })
-
-    return countriesStartWith
+    })
+   
+    return countriesStartWith     
 }
 
 //Search by any
@@ -61,12 +61,15 @@ function searchByAny () {
 
 // GENERATE DIV 1 - GENERATE DIV 1 - GENERATE DIV 1
 function generateDiv () {
-    clearItem()
+
+    if(searchByInitials.classList.contains('selected')){
+
+        clearItem()
+        
+        const resultBox = document.querySelector('.result-section')
+        const newCountries = searchCountriesByInitials ()
     
-    const resultBox = document.querySelector('.result-section')
-    const newCountries = searchCountriesByInitials ()
-    
-    newCountries.forEach((element, index) => {
+        newCountries.forEach((element, index) => {
         
         const resultSpan = document.createElement('span')
         const createNewDiv = document.createElement('div')
@@ -76,7 +79,7 @@ function generateDiv () {
         createNewDiv.appendChild(resultSpan)
         resultBox.appendChild(createNewDiv)
         // createNewDiv.style.background = generateRGB()
-
+        
         if(index % 2 === 0){
             createNewDiv.classList.add('dark')
         }else {
@@ -85,18 +88,21 @@ function generateDiv () {
 
         createNewDiv.addEventListener('mouseenter', playOnHover)
         
-    })
+        })
     
 
-    if(searchBox.value === '') {
-        resultBox.style.display = 'none'
-    } else {
-        resultBox.style.display = 'block'
+        if(searchBox.value === '') {
+            resultBox.style.display = 'none'
+        } else {
+            resultBox.style.display = 'block'
+        }
+
     }
 }
 
 // GENERATE DIV 2 - GENERATE DIV 2 - GENERATE DIV 2
 function generateDiv2 () {
+    if(searchAny.classList.contains('selected')){
     clearItem()
         
     const resultBox = document.querySelector('.result-section')
@@ -127,17 +133,13 @@ function generateDiv2 () {
     } else {
         resultBox.style.display = 'block'
     }
-
+    }
 }
 
 
 
 
 
-function reverseArray () {
-    countries.reverse()
-    console.log(countries.reverse())
-}
 
 
 
@@ -155,20 +157,23 @@ function playOnHover () {
         audio.play();
 }
 
+//selected button
+function selected () {
+    document.querySelectorAll('.btn').forEach(element =>{
+        element.classList.toggle('selected')
+    })
+}
 
-
-
-//font-awesome 
-document.querySelector('.fontawesome-button').addEventListener('click', fontAwesome)
-
-function fontAwesome () {
-    
-    document.querySelector('.fas').classList.toggle("fa-sort-alpha-down")
-    document.querySelector('.fas').classList.toggle("fa-sort-alpha-up")
+//change font awesome icon
+function fontawesome () {
+    document.querySelector('.fas').classList.toggle('fa-sort-alpha-down')
+    document.querySelector('.fas').classList.toggle('fa-sort-alpha-up')
 }
 
 
-
+function reverseArray () {
+    return countries.reverse()
+}
 
 
 
