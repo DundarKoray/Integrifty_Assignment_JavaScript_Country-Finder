@@ -10,11 +10,14 @@ const searchBox = document.querySelector('.search-box')
 // Target the buttons 'Search by Initials' and 'Search by Any'
 const searchByInitials = document.querySelector('.search-by-initials')
 const searchAny = document.querySelector('.search-by-any')
+const searchAlphabetical = document.querySelector('.fontawesome-button')
+
 
 // Add EVENTLISTENER for buttons:  'click' and call the functions for them
 searchByInitials.addEventListener('click', searchCountriesByInitials)
 searchByInitials.addEventListener('click', generateDiv)
 
+searchAlphabetical.addEventListener('click', reverseArray)
 
 searchBox.addEventListener('keyup', generateDiv)
 searchBox.addEventListener('keyup', generateDiv2)
@@ -95,10 +98,10 @@ function generateDiv () {
 // GENERATE DIV 2 - GENERATE DIV 2 - GENERATE DIV 2
 function generateDiv2 () {
     clearItem()
-    
+        
     const resultBox = document.querySelector('.result-section')
     const newCountries = searchByAny()
-    
+
     newCountries.forEach((element, index) => {
         
         const resultSpan = document.createElement('span')
@@ -109,13 +112,13 @@ function generateDiv2 () {
         createNewDiv.appendChild(resultSpan)
         resultBox.appendChild(createNewDiv)
         // createNewDiv.style.background = generateRGB()
-
+        
         if(index % 2 === 0){
             createNewDiv.classList.add('dark')
         }else {
             createNewDiv.classList.add('light')
         }
-
+        
         createNewDiv.addEventListener('mouseenter', playOnHover)
     })
 
@@ -124,8 +127,19 @@ function generateDiv2 () {
     } else {
         resultBox.style.display = 'block'
     }
-    
+
 }
+
+
+
+
+
+function reverseArray () {
+    countries.reverse()
+    console.log(countries.reverse())
+}
+
+
 
 // Clearing result
 function clearItem(){
@@ -135,7 +149,7 @@ function clearItem(){
     })
 }
 
-
+//Hover Audio Sword Effect
 function playOnHover () {
     var audio = document.getElementsByTagName("audio")[0];
         audio.play();
@@ -144,6 +158,14 @@ function playOnHover () {
 
 
 
+//font-awesome 
+document.querySelector('.fontawesome-button').addEventListener('click', fontAwesome)
+
+function fontAwesome () {
+    
+    document.querySelector('.fas').classList.toggle("fa-sort-alpha-down")
+    document.querySelector('.fas').classList.toggle("fa-sort-alpha-up")
+}
 
 
 

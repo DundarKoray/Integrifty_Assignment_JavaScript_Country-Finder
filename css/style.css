@@ -93,13 +93,14 @@ button{
     font-size: 80%;
 }
 
+
+
 button:hover{
     background: rgb(153, 153, 153);
-    transition: all .2s;
-    
+    transition: all .2s;    
 }
 
-.if-clicked {
+.selected {
     background: #a3816a;
 }
 

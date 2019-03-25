@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Country Finder</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Cinzel:400,700,900" rel="stylesheet">
     <embed src="./img/plevne.mp3" type="audio/mpeg" autostart="true" loop="true" hidden="true" >
@@ -33,8 +34,10 @@
             <p>Total Number of Countries 193</p>
         </div>
         <div class="column button-section">
-            <button class="search-by-initials">Starts with...</button>
-            <button class="search-by-any">Contains...</button>
+            <button class="btn search-by-initials selected">Starts with...</button>
+            <button class="btn search-by-any">Contains...</button>
+            <button class="fontawesome-button"><i class="fas fa-sort-alpha-down"></i></button>
+
         </div>
         <div class="column input-section">
             <input class="search-box" type="text" placeholder="Search country...">
