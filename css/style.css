@@ -93,6 +93,15 @@ button{
     font-size: 80%;
 }
 
+.fontawesome-button{
+    
+    padding: 10px 15px;
+    border-radius: 30px;
+    cursor: pointer;
+    background: #DDDDDD;
+    display: inline-block;
+}
+
 
 
 button:hover{
@@ -128,12 +137,12 @@ input{
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 15px 45px;
+    padding: 15px 20px;
     /* border-radius: 20px; */
     color: white;
     margin-bottom: 15px;
     text-transform: uppercase;
-    font-size: 100%;
+    font-size: 80%;
     font-weight: 400;
     width: 100%;
     
