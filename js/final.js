@@ -5,12 +5,12 @@ const buttonInitial = document.querySelector(".search-by-initials");
 const buttonAny = document.querySelector(".search-by-any");
 const resultSection = document.querySelector(".result-section");
 
+
 searchBox.addEventListener("keyup", function(){
     if(buttonInitial.classList.contains('selected')){
         searchCountriesByInitials()
     }
 });
-
 
 
 searchBox.addEventListener("keyup", function(){
@@ -93,6 +93,8 @@ function searchCountriesByInitials() {
     
     }
 
+    
+
   // FUNCTION GENERATEDIV ENDS
 }
 
@@ -125,6 +127,8 @@ function searchByAny() {
     }else {
         resultDiv.classList.add('light')
     }
+
+    resultDiv.addEventListener('mouseenter', playOnHover)
         
   })
   if(searchBox.value == '') {
@@ -136,17 +140,8 @@ function searchByAny() {
     }
 
 
-    resultDiv.addEventListener('mouseenter', playOnHover)
+    
 }
-
-// creating function that creates rgb color
-// function generateRGB() {
-//   let r = Math.floor(Math.random() * 256);
-//   let g = Math.floor(Math.random() * 256);
-//   let b = Math.floor(Math.random() * 256);
-
-//   return `rgb(${r},${g},${g})`;
-// }
 
 // this function clears the search results
 function clearItems() {
@@ -156,13 +151,12 @@ function clearItems() {
   });
 }
 
-
+//SOUND CHECK //SOUND CHECK // SOUND CHECK
 function playOnHover () {
-    var audio = document.getElementsByTagName("audio")[0];
+    var audio = document.getElementsByTagName("audio")[1];
         audio.play();
 }
 
 
-// function sortCountries() {
-//   return countries.reverse();
-// }
+  let backgroundMusic = document.querySelector('.background-music')
+  backgroundMusic.volume = 0.4;
